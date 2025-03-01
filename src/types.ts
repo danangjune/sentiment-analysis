@@ -1,95 +1,53 @@
-export interface SentimentData {
-  date: string;
-  positive: number;
-  neutral: number;
-  negative: number;
-}
-
-export interface StockRecommendation {
-  name: string;
-  buy: number;
-  hold: number;
-  sell: number;
-}
-
-export interface AnalystRating {
-  name: string;
-  value: number;
-  color: string;
-}
-
-export interface TopAnalyst {
-  name: string;
-  company: string;
-  accuracy: number;
-  sentiment: 'bullish' | 'bearish' | 'neutral';
-  avatar: string;
-}
-
-export interface SectorSentiment {
-  name: string;
-  value: number;
-  color: string;
-}
-
-export interface PriceTarget {
-  date: string;
-  target: number;
-  actual: number;
-}
-
-export interface TweetData {
-  conversation_id: string;
+export interface Tweet {
+  conversation_id_str: string;
   created_at: string;
-  date: string;
+  favorite_full_text: string;
   favorite_count: number;
-  full_text: string;
-  id_str: string;
-  image_url: string;
-  in_reply_to: string;
+  user_id_str: string;
+  username: string;
+  image_url?: string;
+  in_reply_to_screen_name?: string;
   lang: string;
-  location: string;
+  location?: string;
   quote_count: number;
   reply_count: number;
   retweet_count: number;
   tweet_url: string;
-  user_id_str: string;
-  username: string;
-  sentiment: 'positive' | 'negative' | 'neutral';
+  sentiment?: 'positive' | 'negative' | 'neutral'; // Optional as it might be calculated by backend
 }
 
-export interface DailySentimentData {
+export interface SentimentData {
+  positive: number;
+  negative: number;
+  neutral: number;
+}
+
+export interface TimeSeriesData {
   date: string;
   positive: number;
   negative: number;
   neutral: number;
-  total: number;
 }
 
-export interface EngagementData {
-  date: string;
-  favorites: number;
-  retweets: number;
-  replies: number;
-  quotes: number;
+export interface DashboardData {
+  tweets: Tweet[];
+  sentimentBreakdown: SentimentData;
+  timeSeriesData: TimeSeriesData[];
+  topTweets: Tweet[];
+  totalTweets: number;
+  totalEngagement: number;
+  averageEngagement: number;
 }
 
-export interface TopTweet {
-  id: string;
-  text: string;
-  username: string;
-  engagement: number;
-  sentiment: 'positive' | 'negative' | 'neutral';
-  date: string;
+// You might want to add these interfaces for API responses
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
 }
 
-export interface LanguageDistribution {
-  language: string;
-  count: number;
-  percentage: number;
-}
-
-export interface HourlyActivity {
-  hour: number;
-  count: number;
+export interface FileUploadResponse {
+  fileId: string;
+  status: 'processing' | 'completed' | 'failed';
+  message?: string;
 }
