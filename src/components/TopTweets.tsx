@@ -9,7 +9,7 @@ interface TopTweetsProps {
 const TopTweets: React.FC<TopTweetsProps> = ({ tweets }) => {
   return (
     <div className="h-full overflow-auto">
-      <h3 className="text-lg font-semibold mb-4">Top Engaging Tweets</h3>
+      <h3 className="text-lg font-semibold mb-4">Top 10 Tweet Terpopular</h3>
       <div className="space-y-4">
         {tweets.map((tweet) => (
           <a key={tweet.conversation_id_str} href={tweet.tweet_url} target="_blank" rel="noopener noreferrer" className="block">

@@ -93,7 +93,7 @@ const TimeSeriesChart: React.FC<TimeSeriesChartProps> = ({ data }) => {
 
   return (
     <div className="h-full">
-      <h3 className="text-lg font-semibold mb-2">Sentiment Trends Over Time</h3>
+      <h3 className="text-lg font-semibold mb-2">Tren Sentiment</h3>
       <Line data={chartData} options={options} />
     </div>
   );

@@ -124,12 +124,15 @@ const Dashboard: React.FC = () => {
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
       <header className="mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="flex items-center gap-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Logo_Kota_Kediri_-_Seal_of_Kediri_City.svg/573px-Logo_Kota_Kediri_-_Seal_of_Kediri_City.svg.png" alt="Logo Kota Kediri" className="w-12 h-12" />
         <div>
-          <h1 className="text-3xl font-bold text-gray-800">Twitter Data Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-800">Dashboard Sentiment (Twitter)</h1>
           <p className="text-gray-600">
-            Analysis of {totalTweets} tweets with sentiment and engagement metrics
+            Menganalis {totalTweets} tweet tentang Kota Kediri 3 bulan terakhir
           </p>
         </div>
+      </div>
         <div className="flex flex-wrap gap-2">
           <input 
             type="text" 
@@ -162,13 +165,13 @@ const Dashboard: React.FC = () => {
         {/* Stats Overview */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard 
-            title="Total Tweets" 
+            title="Total Tweet Dianalisa" 
             value={totalTweets} 
             icon={MessageCircle} 
             color="bg-blue-500" 
           />
           <StatCard 
-            title="Positive Sentiment" 
+            title="Prosentase Sentiment Positif" 
             value={`${positivePercentage}%`} 
             icon={TrendingUp} 
             color="bg-green-500" 
@@ -180,7 +183,7 @@ const Dashboard: React.FC = () => {
             color="bg-purple-500" 
           />
           <StatCard 
-            title="Avg. Engagement" 
+            title="Rata-rata Engagement" 
             value={averageEngagement.toFixed(1)} 
             icon={Users} 
             color="bg-orange-500" 
